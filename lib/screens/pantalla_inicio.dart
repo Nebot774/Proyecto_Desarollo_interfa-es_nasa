@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_interfaces/screens/InicioSesion.dart';
 
 class PantallaInicio extends StatelessWidget {
   @override
@@ -37,6 +38,10 @@ class PantallaInicio extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Acción para el botón de inicio de sesión
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InicioSesion()),
+                  );
                 },
                 child: Text(
                   'Inicio de Sesión',
