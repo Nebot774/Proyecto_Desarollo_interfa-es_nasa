@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyecto_interfaces/screens/InicioSesion.dart';
+import 'package:proyecto_interfaces/screens/Registro.dart';
 
 class PantallaInicio extends StatelessWidget {
   @override
@@ -69,6 +70,10 @@ class PantallaInicio extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Acción para el botón de registrarse
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Registro()),
+                  );
                 },
                 child: Text(
                   'Registrarse',
