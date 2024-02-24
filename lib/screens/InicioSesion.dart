@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto_interfaces/screens/Home.dart';
 
 class InicioSesion extends StatelessWidget {
   @override
@@ -51,6 +52,38 @@ class InicioSesion extends StatelessWidget {
                       fontFamily: 'Roboto',
                       fontStyle: FontStyle.italic,
                     ),
+
+                  ),
+                ),
+                SizedBox(height: 20), // Espacio adicional arriba
+
+                ElevatedButton(
+                  onPressed: () {
+                    // Acción para el botón de registrarse
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Home()),
+                    );
+                  },
+                  child: Text(
+                    'Siguiente',
+                    style: TextStyle(
+                      fontFamily: 'Roboto',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(1.0, 1.0),
+                          blurRadius: 3.0,
+                          color: Colors.black.withOpacity(0.5),
+                        ),
+                      ],
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xff0b3d90),
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                   ),
                 ),
               ],
