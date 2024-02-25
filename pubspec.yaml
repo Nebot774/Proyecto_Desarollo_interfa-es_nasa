@@ -41,6 +41,7 @@ flutter:
           weight: 700
   assets:
     - assets/
+    - assets/images/
   uses-material-design: true
 
 

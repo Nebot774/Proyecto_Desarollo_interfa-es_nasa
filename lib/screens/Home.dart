@@ -31,10 +31,10 @@ class Home extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => items[index].page),
-                );
+                 Navigator.push(
+                   context,
+                   MaterialPageRoute(builder: (context) => items[index].page),
+                 );
               },
               child: Card(
                 color: Color(0xff0b3d90),
