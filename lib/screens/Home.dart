@@ -31,10 +31,26 @@ class Home extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                 Navigator.push(
-                   context,
-                   MaterialPageRoute(builder: (context) => items[index].page),
-                 );
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => items[index].page,
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(1.0, 0.0); // Comienza desde la derecha
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var slideAnimation = animation.drive(tween);
+
+                      return SlideTransition(
+                        position: slideAnimation,
+                        child: child,
+                      );
+                    },
+                    transitionDuration: Duration(milliseconds: 500), // Duración de la transición
+                  ),
+                );
               },
               child: Card(
                 color: Color(0xff0b3d90),
