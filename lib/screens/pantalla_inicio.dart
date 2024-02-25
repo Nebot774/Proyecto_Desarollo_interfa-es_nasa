@@ -38,10 +38,25 @@ class PantallaInicio extends StatelessWidget {
               SizedBox(height: 20), // Espacio entre el título y los botones
               ElevatedButton(
                 onPressed: () {
-                  // Acción para el botón de inicio de sesión
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => InicioSesion()),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => InicioSesion(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        var begin = 0.0;
+                        var end = 1.0;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                        var scaleAnimation = animation.drive(tween);
+
+                        return ScaleTransition(
+                          scale: scaleAnimation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: Duration(milliseconds: 500),
+                    ),
                   );
                 },
                 child: Text(
@@ -69,10 +84,25 @@ class PantallaInicio extends StatelessWidget {
 
               ElevatedButton(
                 onPressed: () {
-                  // Acción para el botón de registrarse
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Registro()),
+                    PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => Registro(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        var begin = 0.0;
+                        var end = 1.0;
+                        var curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                        var scaleAnimation = animation.drive(tween);
+
+                        return ScaleTransition(
+                          scale: scaleAnimation,
+                          child: child,
+                        );
+                      },
+                      transitionDuration: Duration(milliseconds: 500),
+                    ),
                   );
                 },
                 child: Text(

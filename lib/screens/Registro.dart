@@ -70,10 +70,25 @@ class Registro extends StatelessWidget {
 
                 ElevatedButton(
                   onPressed: () {
-                    // Acción para el botón de registrarse
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Home()),
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => Home(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          var begin = 0.0;
+                          var end = 1.0;
+                          var curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var scaleAnimation = animation.drive(tween);
+
+                          return ScaleTransition(
+                            scale: scaleAnimation,
+                            child: child,
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 500),
+                      ),
                     );
                   },
                   child: Text(
