@@ -3,14 +3,25 @@ import 'package:proyecto_interfaces/models/Item2.dart';
 
 class mars_rovers extends StatelessWidget {
   final List<Item2> items = [
-    Item2(imagePath: 'assets/sojouner.png', text: 'SOJOURNER'),
-    Item2(imagePath: 'assets/INSIGHT.png', text: 'INSIGHT'),
-    Item2(imagePath: 'assets/MARS3.png', text: 'MARS3'),
-    Item2(imagePath: 'assets/INGENUITY.png', text: 'INGENUITY'),
-    Item2(imagePath: 'assets/OPPORTUNITY.png', text: 'OPPORTUNITY'),
-    Item2(imagePath: 'assets/CURIOSITY.png', text: 'CURIOSITY'),
-    Item2(imagePath: 'assets/PERSEVERANCE.png', text: 'PERSEVERANCE'),
-    Item2(imagePath: 'assets/SPIRIT.png', text: 'SPIRIT'),
+    Item2(imagePath: 'assets/sojouner.png',
+        text: 'SOJOURNER',
+        roverName: 'Sojourner'),
+    Item2(
+        imagePath: 'assets/INSIGHT.png', text: 'INSIGHT', roverName: 'Insight'),
+    Item2(imagePath: 'assets/MARS3.png', text: 'MARS3', roverName: 'Mars3'),
+    Item2(imagePath: 'assets/INGENUITY.png',
+        text: 'INGENUITY',
+        roverName: 'Ingenuity'),
+    Item2(imagePath: 'assets/OPPORTUNITY.png',
+        text: 'OPPORTUNITY',
+        roverName: 'Opportunity'),
+    Item2(imagePath: 'assets/CURIOSITY.png',
+        text: 'CURIOSITY',
+        roverName: 'Curiosity'),
+    Item2(imagePath: 'assets/PERSEVERANCE.png',
+        text: 'PERSEVERANCE',
+        roverName: 'Perseverance'),
+    Item2(imagePath: 'assets/SPIRIT.png', text: 'SPIRIT', roverName: 'Spirit'),
   ];
 
   @override
@@ -31,10 +42,8 @@ class mars_rovers extends StatelessWidget {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                //Navigator.push(
-                 // context,
-                 // MaterialPageRoute(builder: (context) => items[index].page),
-                //);
+                // Llama a navigateToRoverPage para navegar a la pantalla del Mars Rover específico
+                items[index].navigateToRoverPage(context);
               },
               child: Card(
                 color: Color(0xff0b3d90),
@@ -43,7 +52,8 @@ class mars_rovers extends StatelessWidget {
                   children: <Widget>[
                     Expanded(
                       child: ClipRRect(
-                        borderRadius: BorderRadius.vertical(top: Radius.circular(4)),
+                        borderRadius: BorderRadius.vertical(top: Radius
+                            .circular(4)),
                         child: Image.asset(
                           items[index].imagePath,
                           fit: BoxFit.cover,
