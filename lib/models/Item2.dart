@@ -17,34 +17,61 @@ class Item2 {
   Item2({required this.imagePath, required this.text, required this.roverName});
 
   void navigateToRoverPage(BuildContext context) {
+    Widget? page; // Hacer 'page' nullable para manejar el caso default
+
     switch (roverName) {
       case 'Sojourner':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SojournerScreen()));
+        page = SojournerScreen();
         break;
       case 'Insight':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => InsightScreen()));
+        page = InsightScreen();
         break;
       case 'Mars3':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Mars3Screen()));
+        page = Mars3Screen();
         break;
       case 'Ingenuity':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => IngenuityScreen()));
+        page = IngenuityScreen();
         break;
       case 'Opportunity':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => OpportunityScreen()));
+        page = OpportunityScreen();
         break;
       case 'Curiosity':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CuriosityScreen()));
+        page = CuriosityScreen();
         break;
       case 'Perseverance':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => PerseveranceScreen()));
+        page = PerseveranceScreen();
         break;
       case 'Spirit':
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SpiritScreen()));
+        page = SpiritScreen();
         break;
       default:
-      // Opción por defecto si no se reconoce el nombre
-        break;
+      // Opción por defecto si no se reconoce el nombre. Podemos optar por no hacer nada aquí.
+      // Por ejemplo, regresar directamente para evitar navegación sin destino.
+        return;
     }
+
+    if (page != null) {
+      Navigator.of(context).push(PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => page!,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          // Definir la animación de rotación
+          var tween = Tween(begin: 0.0, end: 1.0);
+          var curve = Curves.easeInOut;
+          var curvedAnimation = CurvedAnimation(
+            parent: animation,
+            curve: curve,
+          );
+
+          return RotationTransition(
+            turns: Tween(begin: 0.0, end: 1.0).animate(curvedAnimation),
+            child: child,
+            alignment: Alignment.center, // El punto de origen de la rotación
+          );
+        },
+      ));
+    }
+
+
   }
 }
+

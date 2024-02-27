@@ -8,20 +8,20 @@ class mars_rovers extends StatelessWidget {
         roverName: 'Sojourner'),
     Item2(
         imagePath: 'assets/INSIGHT.png', text: 'INSIGHT', roverName: 'Insight'),
-    Item2(imagePath: 'assets/MARS3.png', text: 'MARS3', roverName: 'Mars3'),
-    Item2(imagePath: 'assets/INGENUITY.png',
+    Item2(imagePath: 'assets/MARS3menu.png', text: 'MARS3', roverName: 'Mars3'),
+    Item2(imagePath: 'assets/INGENUITYmenu.png',
         text: 'INGENUITY',
         roverName: 'Ingenuity'),
-    Item2(imagePath: 'assets/OPPORTUNITY.png',
+    Item2(imagePath: 'assets/OPPORTUNITYmenu.png',
         text: 'OPPORTUNITY',
         roverName: 'Opportunity'),
-    Item2(imagePath: 'assets/CURIOSITY.png',
+    Item2(imagePath: 'assets/CURIOSITYmenu.png',
         text: 'CURIOSITY',
         roverName: 'Curiosity'),
-    Item2(imagePath: 'assets/PERSEVERANCE.png',
+    Item2(imagePath: 'assets/PERSEVERANCEmenu.png',
         text: 'PERSEVERANCE',
         roverName: 'Perseverance'),
-    Item2(imagePath: 'assets/SPIRIT.png', text: 'SPIRIT', roverName: 'Spirit'),
+    Item2(imagePath: 'assets/SPIRITmenu.png', text: 'SPIRIT', roverName: 'Spirit'),
   ];
 
   @override
